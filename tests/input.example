@@ -1,0 +1,10 @@
+add WIRE usb WIRE type-c, WIRE hdmi, DEVICE phone, DEVICE computer, DEVICE tablet, PROCESSOR intel, PROCESSOR AMD, ACTUATOR switch, SENSOR fingerprint_sensor
+disp
+sort ID
+disp
+sort -r
+sort TYPE
+disp
+sort NAME
+disp
+exit

@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+import random
+
+# Liste des types disponibles
+types = ['WIRE', 'ACTUATOR', 'SENSOR', 'DEVICE', 'PROCESSOR']
+
+# Générer une chaîne aléatoire de caractères
+def random_string(length):
+    letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    return ''.join(random.choice(letters) for _ in range(length))
+
+# Générer le contenu du fichier
+def generate_file(file_name, num_lines):
+    with open(file_name, 'w') as file:
+        for _ in range(num_lines):
+            element = random.choice(types)
+            random_text = random_string(random.randint(5, 15))
+            line = f"add {element} {random_text}\n"
+            file.write(line)
+        file.write("sort TYPE -r\n")
+        file.write("sort NAME -r\n")
+        file.write("disp\n")
+        file.write("exit")
+
+# Appel de la fonction pour générer le fichier avec 10 lignes
+generate_file('output.txt', 10000)
